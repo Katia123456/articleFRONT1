@@ -1,0 +1,26 @@
+<h2>Liste des Articles</h2>
+<div class="recherche">
+  <form (submit)="onSearch()">
+    <input
+      type="text"
+      (keyupenter)="onSearch()"
+      [(ngModel)]="searchTerm"
+      name="searchTerm"
+      placeholder="Rechercher un article.."
+    />
+    <button type="submit">Rechercher</button>
+  </form>
+</div>
+
+<ul *ngIf="articleList.length > 0">
+  <li (click)="goToArticle(article)" *ngFor="let article of articleList">
+    <h3>{{ article.title }}</h3>
+    <img [src]="article.img" alt="Article photo" />
+    <p>Auteur : {{ article.author }}</p>
+    <p>Date de publication : {{ article.publicationDate | date }}</p>
+  </li>
+  <li>
+    <a routerLink="/articleDetail"></a>
+  </li>
+</ul>
+<span *ngIf="articleList.length == 0"> Aucun article trouvé</span>

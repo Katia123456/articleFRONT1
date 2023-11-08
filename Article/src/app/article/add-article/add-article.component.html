@@ -1,0 +1,74 @@
+<div>
+  <h2>Ajouter un nouvel article</h2>
+  <form (ngSubmit)="onSubmit()" #articleForm="ngForm">
+    <label for="title">Titre de l'article:</label>
+    <input
+      type="text"
+      (keyup)="(0)"
+      id="title"
+      name="title"
+      [(ngModel)]="newArticle.title"
+      #title="ngModel"
+      required
+      minlength="5"
+      maxlength="30"
+    />
+    <div *ngIf="title.errors">
+      <span *ngIf="title.errors?.['required']">Le titre est requis</span>
+      <span *ngIf="title.errors?.['minlength']"
+        >La longueur minimale doit être supérieure à 5</span
+      >
+      <span *ngIf="title.errors?.['maxlength']"
+        >La longueur maximale doit être inférieure à 30</span
+      >
+    </div>
+
+    <label for="author">Auteur de l'article:</label>
+    <input
+      type="text"
+      (keyup)="(0)"
+      id="author"
+      name="author"
+      [(ngModel)]="newArticle.author"
+      #author="ngModel"
+      required
+    />
+    <div *ngIf="author.errors">
+      <span *ngIf="author.errors?.['required']">L'author est requis</span>
+    </div>
+
+    <label for="image">Chemin de l'image:</label>
+    <input
+      type="text"
+      (keyup)="(0)"
+      id="image"
+      name="image"
+      [(ngModel)]="newArticle.img"
+      #img="ngModel"
+    />
+
+    <label for="PublicationDate">Date de la publication :</label>
+    <input
+      type="date"
+      (keyup)="(0)"
+      id="PublicationDate"
+      name="PublicationDate"
+      [(ngModel)]="newArticle.publicationDate"
+      #PublicationDate="ngModel"
+      required
+    />
+    <div *ngIf="PublicationDate.errors">
+      <span *ngIf="PublicationDate.errors?.['required']"
+        >La date est requis</span
+      >
+    </div>
+    <button type="reset">Restaurer</button>
+    <button type="submit">Ajouter l'article</button>
+  </form>
+</div>
+<div>
+  {{ newArticle.title }}<br />
+  {{ newArticle.author }}<br />
+  {{ newArticle.img }}<br />
+  {{ newArticle.publicationDate }}
+</div>

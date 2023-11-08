@@ -1,0 +1,38 @@
+.navbar {
+  background-color: rgb(150, 150, 169); /* Couleur de fond de la barre de navigation */
+  color: #fff;
+  padding: 10px 0; 
+  height: 150%;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  border-radius:50px;
+}
+
+
+.navbar-nav {
+  list-style: none; /* Supprimer les puces des listes non ordonnées */
+  padding: 50px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px
+}
+
+.nav-item {
+  display: block; /* Afficher les éléments de la liste en ligne (côte à côte) */
+  margin-right: 20px;
+  margin-bottom: 50px;
+  height: 70px;  
+  width: 100px;
+  background-color: #c8c7c1;
+  align-items: center;
+  text-align: center;
+  border-radius:50px;
+}
+
+.nav-link {
+  color: #fff; 
+  text-decoration: none; }
+
